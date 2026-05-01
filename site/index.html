@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AutoWhisper is a local-first desktop dictation app powered by whisper.cpp, with macOS downloads and Linux PPA install commands.">
+  <title>AutoWhisper | Local-first desktop dictation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" aria-label="Primary navigation">
+    <a class="brand" href="./" aria-label="AutoWhisper home">
+      <span class="brand-mark" aria-hidden="true">AW</span>
+      <span class="brand-name">AutoWhisper</span>
+    </a>
+    <nav class="nav-links" aria-label="Site links">
+      <a href="#download">Download</a>
+      <a href="#linux">Linux</a>
+      <a href="#privacy">Privacy</a>
+      <a href="https://github.com/primemanifold/autowhisper">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Local speech-to-text for desktop flow</p>
+        <h1 id="hero-title">Dictation that stays at your desk.</h1>
+        <p class="lede">
+          AutoWhisper turns push-to-talk speech into text with local Whisper models.
+          It is built for people who want fast capture, fewer context switches, and a clear privacy boundary.
+        </p>
+        <div class="hero-actions" id="download">
+          <a class="button button-primary" href="https://github.com/primemanifold/autowhisper/releases/download/v0.7.0/AutoWhisper-macOS-v0.7.0.zip">
+            Download for macOS
+          </a>
+          <a class="button button-secondary" href="https://github.com/primemanifold/autowhisper/releases/latest">
+            View latest release
+          </a>
+        </div>
+        <ul class="release-list" aria-label="macOS release details">
+          <li><strong>macOS v0.7.0</strong></li>
+          <li>Developer ID signed</li>
+          <li>Notarized and stapled</li>
+          <li>Gatekeeper accepted</li>
+        </ul>
+      </div>
+
+      <aside class="device-panel" aria-label="AutoWhisper summary">
+        <div class="device-topline">
+          <span>input</span>
+          <span>offline</span>
+        </div>
+        <div class="wave" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="transcript-card">
+          <p class="transcript-label">transcript</p>
+          <p class="transcript-text">Press hotkey. Speak naturally. Insert text where you already work.</p>
+        </div>
+        <dl class="device-facts">
+          <div><dt>Engine</dt><dd>whisper.cpp</dd></div>
+          <div><dt>Mode</dt><dd>local-first</dd></div>
+          <div><dt>Targets</dt><dd>macOS + Linux</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="proof-strip" aria-label="Project qualities">
+      <div>
+        <p class="kicker">01</p>
+        <h2>Local-first</h2>
+        <p>Audio is processed on your machine with local models. No cloud transcription account is required for the core flow.</p>
+      </div>
+      <div>
+        <p class="kicker">02</p>
+        <h2>Desktop-native path</h2>
+        <p>The project ships a notarized macOS bundle and keeps Linux packaging as a first-class install route.</p>
+      </div>
+      <div>
+        <p class="kicker">03</p>
+        <h2>Operationally plain</h2>
+        <p>No analytics, no web app runtime, no account wall on this landing page. Just the download path and the install commands.</p>
+      </div>
+    </section>
+
+    <section class="install-section" id="linux" aria-labelledby="linux-title">
+      <div class="section-heading">
+        <p class="eyebrow">Linux install</p>
+        <h2 id="linux-title">Ubuntu / Debian via PPA</h2>
+        <p>
+          Add the AutoWhisper package source, refresh apt, then install the desktop utility.
+          These commands are shown exactly so the path is easy to audit.
+        </p>
+      </div>
+      <div class="command-card" aria-label="PPA install commands">
+        <pre><code>sudo add-apt-repository ppa:primemanifold/autowhisper
+sudo apt update
+sudo apt install autowhisper</code></pre>
+      </div>
+    </section>
+
+    <section class="privacy-section" id="privacy" aria-labelledby="privacy-title">
+      <div>
+        <p class="eyebrow">Privacy posture</p>
+        <h2 id="privacy-title">A clear boundary: your speech should not need a remote transcription service.</h2>
+      </div>
+      <div class="privacy-copy">
+        <p>
+          AutoWhisper is positioned around local processing, local models, and a desktop workflow that does not require cloud speech APIs for normal dictation.
+          That makes the behavior easier to reason about and easier to inspect.
+        </p>
+        <p>
+          The claim is intentionally narrow: local-first transcription, not magic security dust. You still control where the resulting text is pasted, saved, or sent.
+        </p>
+      </div>
+    </section>
+
+    <section class="notice" aria-labelledby="availability-title">
+      <p class="eyebrow">Availability note</p>
+      <h2 id="availability-title">Public page now, public assets when the app repo opens.</h2>
+      <p>
+        If the main repository is private, GitHub release downloads and source links may ask for access.
+        Public release links will work once the AutoWhisper repository or mirrored assets are public.
+      </p>
+      <a class="text-link" href="https://github.com/primemanifold/autowhisper">Open the AutoWhisper repository</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>AutoWhisper</span>
+    <a href="https://github.com/primemanifold/autowhisper">GitHub repo</a>
+  </footer>
+</body>
+</html>
