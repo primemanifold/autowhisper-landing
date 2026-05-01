@@ -39,11 +39,14 @@ class StaticSiteTests(unittest.TestCase):
     def read(self, relative):
         return (ROOT / relative).read_text(encoding="utf-8")
 
-    def parse_html(self):
-        html = self.read("site/index.html")
+    def parse_page(self, relative):
+        html = self.read(relative)
         parser = LinkCollector()
         parser.feed(html)
         return html, parser
+
+    def parse_html(self):
+        return self.parse_page("site/index.html")
 
     def test_required_project_files_exist(self):
         for relative in [
@@ -51,6 +54,7 @@ class StaticSiteTests(unittest.TestCase):
             "DESIGN.md",
             "README.md",
             "site/index.html",
+            "site/roadmap.html",
             "site/styles.css",
             "site/.nojekyll",
             ".github/workflows/pages.yml",
@@ -118,6 +122,50 @@ class StaticSiteTests(unittest.TestCase):
         self.assertIn("oklch", css)
         self.assertNotIn("#000", css)
         self.assertNotIn("#fff", css.lower())
+
+    def test_roadmap_page_is_linked_and_collects_requests_static_safely(self):
+        index_html, index_parser = self.parse_html()
+        roadmap_html, roadmap_parser = self.parse_page("site/roadmap.html")
+        roadmap_text = re.sub(r"\s+", " ", roadmap_html)
+
+        self.assertIn("roadmap.html", index_parser.links)
+        self.assertIn("Roadmap", index_html)
+        self.assertIn('<form class="request-form"', roadmap_html)
+        self.assertIn('method="post"', roadmap_html)
+        self.assertRegex(roadmap_html, r'action="mailto:[^"]+subject=AutoWhisper%20roadmap%20request"')
+        self.assertIn('enctype="text/plain"', roadmap_html)
+        for field in ['name="name"', 'name="email"', 'name="comment"']:
+            self.assertIn(field, roadmap_html)
+        for label in ["Name", "Email", "Comment"]:
+            self.assertRegex(roadmap_html, rf"<label[^>]*>{label}</label>")
+        self.assertIn("No request is stored in the browser", roadmap_text)
+        self.assertIn("opens your email client", roadmap_text)
+        self.assertIn("https://github.com/primemanifold/autowhisper-landing/issues/new", roadmap_parser.links)
+
+    def test_roadmap_page_has_planned_in_progress_and_shipped_sections(self):
+        roadmap_html, _ = self.parse_page("site/roadmap.html")
+        roadmap_text = re.sub(r"\s+", " ", roadmap_html)
+        for phrase in [
+            "Now",
+            "Next",
+            "Later",
+            "Recently shipped",
+            "macOS onboarding",
+            "local-first",
+            "Roadmap requests",
+        ]:
+            self.assertIn(phrase, roadmap_text)
+        self.assertIn("roadmap-board", roadmap_html)
+        self.assertIn("request-panel", roadmap_html)
+
+    def test_roadmap_page_keeps_static_no_runtime_policy(self):
+        roadmap_html = self.read("site/roadmap.html").lower()
+        banned = [
+            "script src=", "tailwind", "googletagmanager", "google-analytics",
+            "plausible", "segment.com", "cdn.jsdelivr", "unpkg.com", "react",
+        ]
+        for token in banned:
+            self.assertNotIn(token, roadmap_html)
 
     def test_pages_workflow_deploys_public_static_site(self):
         workflow = self.read(".github/workflows/pages.yml")

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AutoWhisper roadmap: what is shipping now, what is queued next, and how to send roadmap requests without analytics or trackers.">
+  <title>Roadmap | AutoWhisper</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" aria-label="Primary navigation">
+    <div class="nav-shell">
+      <a class="brand" href="./" aria-label="AutoWhisper home">AutoWhisper</a>
+      <nav class="nav-links" aria-label="Site links">
+        <a href="./#download">Download</a>
+        <a href="./#linux">Linux</a>
+        <a href="./#privacy">Privacy</a>
+        <a class="is-active" href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/primemanifold/autowhisper">GitHub</a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/primemanifold/autowhisper/releases/download/v0.7.0/AutoWhisper-macOS-v0.7.0.zip">Download for macOS</a>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="roadmap-intro" aria-labelledby="roadmap-title">
+      <p class="eyebrow">Public roadmap</p>
+      <h1 id="roadmap-title">What is shipping, what is queued.</h1>
+      <p class="lede">
+        AutoWhisper is a small desktop tool kept on a deliberate cadence and held to a local-first promise. This page lists the work that is in motion, the work waiting in line, and the work that has already shipped.
+      </p>
+    </section>
+
+    <section class="roadmap-board" aria-label="Roadmap columns">
+      <article class="roadmap-column" aria-labelledby="now-title">
+        <header class="column-head">
+          <p class="eyebrow">Now</p>
+          <h2 id="now-title">In flight</h2>
+        </header>
+        <ul class="roadmap-list">
+          <li>
+            <h3>macOS onboarding refinement</h3>
+            <p>Tighter first-run flow for the notarized v0.7.0 build, including microphone permission prompts and clearer hotkey discovery.</p>
+          </li>
+          <li>
+            <h3>Whisper model picker</h3>
+            <p>Choose a local Whisper model size from the menu bar without touching configuration files by hand.</p>
+          </li>
+        </ul>
+      </article>
+
+      <article class="roadmap-column" aria-labelledby="next-title">
+        <header class="column-head">
+          <p class="eyebrow">Next</p>
+          <h2 id="next-title">Queued</h2>
+        </header>
+        <ul class="roadmap-list">
+          <li>
+            <h3>Linux desktop polish</h3>
+            <p>Hotkey reliability under Wayland and a packaged AppIndicator for the PPA install path.</p>
+          </li>
+          <li>
+            <h3>Custom dictionary</h3>
+            <p>Pin proper nouns, command names, and acronyms so transcription respects local vocabulary.</p>
+          </li>
+        </ul>
+      </article>
+
+      <article class="roadmap-column" aria-labelledby="later-title">
+        <header class="column-head">
+          <p class="eyebrow">Later</p>
+          <h2 id="later-title">On the horizon</h2>
+        </header>
+        <ul class="roadmap-list">
+          <li>
+            <h3>Per-app profiles</h3>
+            <p>Different prompt and formatting defaults when dictating into a terminal, an editor, or a chat client.</p>
+          </li>
+          <li>
+            <h3>Voice command actions</h3>
+            <p>Trigger small local actions, such as inserting templates, while keeping audio on the device.</p>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="shipped-panel" aria-labelledby="shipped-title">
+      <div class="shipped-intro">
+        <p class="eyebrow">Recently shipped</p>
+        <h2 id="shipped-title">Landed in the last few releases.</h2>
+      </div>
+      <ul class="shipped-list">
+        <li>
+          <h3>v0.7.0 notarized macOS build</h3>
+          <p>Developer ID signed, notarized, and stapled, with Gatekeeper acceptance verified on a clean machine before the release was tagged.</p>
+        </li>
+        <li>
+          <h3>Ubuntu and Debian PPA</h3>
+          <p>Install via <code>sudo apt install autowhisper</code> after adding the PPA, with no manual binary handling required.</p>
+        </li>
+        <li>
+          <h3>Local-first transcription core</h3>
+          <p>Push-to-talk dictation routed entirely through whisper.cpp on device, keeping the local-first contract intact with no remote transcription dependency.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="request-panel" aria-labelledby="requests-title">
+      <div class="request-intro">
+        <p class="eyebrow">Roadmap requests</p>
+        <h2 id="requests-title">Ask for a feature, a fix, or a platform.</h2>
+        <p>
+          Submitting the form below opens your email client with the request prefilled as plain text. No request is stored in the browser, the page does not run any tracking script, and nothing is sent until you press send inside your mail client.
+        </p>
+        <p>
+          If you would rather file an issue in the open, do that instead: <a class="text-link" href="https://github.com/primemanifold/autowhisper-landing/issues/new">Open a roadmap request on GitHub</a>.
+        </p>
+      </div>
+
+      <form class="request-form" method="post" action="mailto:roadmap@primemanifold.dev?subject=AutoWhisper%20roadmap%20request" enctype="text/plain">
+        <div class="field">
+          <label for="request-name">Name</label>
+          <input id="request-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="request-email">Email</label>
+          <input id="request-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="request-comment">Comment</label>
+          <textarea id="request-comment" name="comment" rows="6" required></textarea>
+        </div>
+        <button class="button button-primary" type="submit">Send roadmap request</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-shell">
+      <span>© AutoWhisper. Public page now, public assets when the app repo opens.</span>
+      <nav aria-label="Footer links">
+        <a href="./">Home</a>
+        <a href="https://github.com/primemanifold/autowhisper">GitHub Repository</a>
+        <a href="https://github.com/primemanifold/autowhisper/releases/latest">Latest Release</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
