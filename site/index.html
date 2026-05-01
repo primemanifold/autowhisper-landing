@@ -10,99 +10,83 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" aria-label="Primary navigation">
-    <a class="brand" href="./" aria-label="AutoWhisper home">
-      <span class="brand-mark" aria-hidden="true">AW</span>
-      <span class="brand-name">AutoWhisper</span>
-    </a>
-    <nav class="nav-links" aria-label="Site links">
-      <a href="#download">Download</a>
-      <a href="#linux">Linux</a>
-      <a href="#privacy">Privacy</a>
-      <a href="https://github.com/primemanifold/autowhisper">GitHub</a>
-    </nav>
+  <header class="topbar" aria-label="Primary navigation">
+    <div class="nav-shell">
+      <a class="brand" href="./" aria-label="AutoWhisper home">AutoWhisper</a>
+      <nav class="nav-links" aria-label="Site links">
+        <a class="is-active" href="#download">Download</a>
+        <a href="#linux">Linux</a>
+        <a href="#privacy">Privacy</a>
+        <a href="https://github.com/primemanifold/autowhisper">GitHub</a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/primemanifold/autowhisper/releases/download/v0.7.0/AutoWhisper-macOS-v0.7.0.zip">Download for macOS</a>
+    </div>
   </header>
 
-  <main id="main">
+  <main id="main" class="page-shell">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">Local speech-to-text for desktop flow</p>
-        <h1 id="hero-title">Dictation that stays at your desk.</h1>
-        <p class="lede">
-          AutoWhisper turns push-to-talk speech into text with local Whisper models.
-          It is built for people who want fast capture, fewer context switches, and a clear privacy boundary.
-        </p>
-        <div class="hero-actions" id="download">
-          <a class="button button-primary" href="https://github.com/primemanifold/autowhisper/releases/download/v0.7.0/AutoWhisper-macOS-v0.7.0.zip">
-            Download for macOS
-          </a>
-          <a class="button button-secondary" href="https://github.com/primemanifold/autowhisper/releases/latest">
-            View latest release
-          </a>
-        </div>
-        <ul class="release-list" aria-label="macOS release details">
-          <li><strong>macOS v0.7.0</strong></li>
-          <li>Developer ID signed</li>
-          <li>Notarized and stapled</li>
-          <li>Gatekeeper accepted</li>
-        </ul>
+      <p class="eyebrow">Local speech-to-text for desktop flow</p>
+      <h1 id="hero-title">Effortless local transcription.</h1>
+      <p class="lede">
+        AutoWhisper turns push-to-talk speech into text with local Whisper models.
+        Fast capture, fewer context switches, and a privacy boundary you can actually reason about.
+      </p>
+      <div class="hero-actions" id="download">
+        <a class="button button-primary" href="https://github.com/primemanifold/autowhisper/releases/download/v0.7.0/AutoWhisper-macOS-v0.7.0.zip">Get AutoWhisper</a>
+        <a class="button button-secondary" href="https://github.com/primemanifold/autowhisper/releases/latest">View latest release</a>
       </div>
+      <ul class="release-list" aria-label="macOS release details">
+        <li><strong>macOS v0.7.0</strong></li>
+        <li>Developer ID signed</li>
+        <li>Notarized and stapled</li>
+        <li>Gatekeeper accepted</li>
+      </ul>
+    </section>
 
-      <aside class="device-panel" aria-label="AutoWhisper summary">
-        <div class="device-topline">
-          <span>input</span>
+    <section class="product-frame" aria-label="AutoWhisper local waveform preview">
+      <div class="waveform-card">
+        <div class="waveform-stage" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="preview-footer">
+          <span>whisper.cpp</span>
           <span>offline</span>
+          <span>push-to-talk</span>
         </div>
-        <div class="wave" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="transcript-card">
-          <p class="transcript-label">transcript</p>
-          <p class="transcript-text">Press hotkey. Speak naturally. Insert text where you already work.</p>
-        </div>
-        <dl class="device-facts">
-          <div><dt>Engine</dt><dd>whisper.cpp</dd></div>
-          <div><dt>Mode</dt><dd>local-first</dd></div>
-          <div><dt>Targets</dt><dd>macOS + Linux</dd></div>
-        </dl>
-      </aside>
-    </section>
-
-    <section class="proof-strip" aria-label="Project qualities">
-      <div>
-        <p class="kicker">01</p>
-        <h2>Local-first</h2>
-        <p>Audio is processed on your machine with local models. No cloud transcription account is required for the core flow.</p>
-      </div>
-      <div>
-        <p class="kicker">02</p>
-        <h2>Desktop-native path</h2>
-        <p>The project ships a notarized macOS bundle and keeps Linux packaging as a first-class install route.</p>
-      </div>
-      <div>
-        <p class="kicker">03</p>
-        <h2>Operationally plain</h2>
-        <p>No analytics, no web app runtime, no account wall on this landing page. Just the download path and the install commands.</p>
       </div>
     </section>
 
-    <section class="install-section" id="linux" aria-labelledby="linux-title">
-      <div class="section-heading">
-        <p class="eyebrow">Linux install</p>
-        <h2 id="linux-title">Ubuntu / Debian via PPA</h2>
-        <p>
-          Add the AutoWhisper package source, refresh apt, then install the desktop utility.
-          These commands are shown exactly so the path is easy to audit.
-        </p>
-      </div>
-      <div class="command-card" aria-label="PPA install commands">
-        <pre><code>sudo add-apt-repository ppa:primemanifold/autowhisper
+    <section class="bento" aria-label="Product qualities">
+      <article class="tile tile-wide">
+        <p class="tile-icon" aria-hidden="true">■</p>
+        <h2>Local-first by default</h2>
+        <p>Your audio is processed on your machine with local Whisper models. No cloud transcription account is required for the core flow.</p>
+      </article>
+      <article class="tile">
+        <p class="tile-icon" aria-hidden="true">●</p>
+        <h2>Built for flow</h2>
+        <p>Use push-to-talk dictation and insert text where you already work, without turning a note into a browser errand.</p>
+      </article>
+      <article class="tile">
+        <p class="tile-icon" aria-hidden="true">◆</p>
+        <h2>Native distribution</h2>
+        <p>A notarized macOS bundle is available, with Linux packaging kept as a first-class install path.</p>
+      </article>
+      <article class="tile tile-wide command-tile" id="linux">
+        <div>
+          <p class="eyebrow">Linux install</p>
+          <h2>Ubuntu / Debian via PPA</h2>
+          <p>Add the package source, refresh apt, then install the desktop utility.</p>
+        </div>
+        <pre aria-label="PPA install commands"><code>sudo add-apt-repository ppa:primemanifold/autowhisper
 sudo apt update
 sudo apt install autowhisper</code></pre>
-      </div>
+      </article>
     </section>
 
-    <section class="privacy-section" id="privacy" aria-labelledby="privacy-title">
+    <section class="privacy-panel" id="privacy" aria-labelledby="privacy-title">
       <div>
         <p class="eyebrow">Privacy posture</p>
         <h2 id="privacy-title">A clear boundary: your speech should not need a remote transcription service.</h2>
@@ -110,7 +94,6 @@ sudo apt install autowhisper</code></pre>
       <div class="privacy-copy">
         <p>
           AutoWhisper is positioned around local processing, local models, and a desktop workflow that does not require cloud speech APIs for normal dictation.
-          That makes the behavior easier to reason about and easier to inspect.
         </p>
         <p>
           The claim is intentionally narrow: local-first transcription, not magic security dust. You still control where the resulting text is pasted, saved, or sent.
@@ -130,8 +113,13 @@ sudo apt install autowhisper</code></pre>
   </main>
 
   <footer class="site-footer">
-    <span>AutoWhisper</span>
-    <a href="https://github.com/primemanifold/autowhisper">GitHub repo</a>
+    <div class="footer-shell">
+      <span>© AutoWhisper. Public page now, public assets when the app repo opens.</span>
+      <nav aria-label="Footer links">
+        <a href="https://github.com/primemanifold/autowhisper">GitHub Repository</a>
+        <a href="https://github.com/primemanifold/autowhisper/releases/latest">Latest Release</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>
