@@ -25,7 +25,7 @@ Plainspoken, specific, and evidence-led. Prefer concrete nouns over marketing ab
 
 ## Required content
 
-- macOS download CTA for the v0.7.0 notarized build.
+- macOS download CTA for the v0.7.1 notarized build.
 - Latest release link.
 - Ubuntu and Debian PPA install commands.
 - Local-first and privacy positioning.
