@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AutoWhisper is a local-first desktop dictation app powered by whisper.cpp, with macOS downloads and Linux PPA install commands.">
-  <title>AutoWhisper | Local-first desktop dictation</title>
+  <meta name="description" content="AutoWhisper is a local-first desktop transcription app powered by whisper.cpp, with macOS downloads and Linux PPA install commands.">
+  <title>AutoWhisper | Local-first desktop transcription</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,8 +15,9 @@
       <a class="brand" href="./" aria-label="AutoWhisper home">AutoWhisper</a>
       <nav class="nav-links" aria-label="Site links">
         <a class="is-active" href="#download">Download</a>
-        <a href="#linux">Linux</a>
+        <a href="#workflow">Workflow</a>
         <a href="#privacy">Privacy</a>
+        <a href="#linux">Linux</a>
         <a href="roadmap.html">Roadmap</a>
         <a href="https://github.com/primemanifold/autowhisper">GitHub</a>
       </nav>
@@ -26,17 +27,16 @@
 
   <main id="main" class="page-shell">
     <section class="hero" aria-labelledby="hero-title">
-      <p class="eyebrow">Local speech-to-text for desktop flow</p>
-      <h1 id="hero-title">Effortless local transcription.</h1>
+      <p class="eyebrow">Private transcription for your Mac</p>
+      <h1 id="hero-title">Your audio stays on your machine.</h1>
       <p class="lede">
-        AutoWhisper turns push-to-talk speech into text with local Whisper models.
-        Fast capture, fewer context switches, and a privacy boundary you can actually reason about.
+        AutoWhisper turns recordings and push-to-talk speech into clean text using local Whisper models. macOS v0.7.1 ships notarized today. Linux installs via PPA commands. No cloud transcription account is required for the core flow.
       </p>
       <div class="hero-actions" id="download">
         <a class="button button-primary" href="https://github.com/primemanifold/autowhisper/releases/download/v0.7.1/AutoWhisper-macOS-v0.7.1.zip">Get AutoWhisper</a>
         <a class="button button-secondary" href="https://github.com/primemanifold/autowhisper/releases/latest">View latest release</a>
       </div>
-      <ul class="release-list" aria-label="macOS release details">
+      <ul class="release-list proof-badges" aria-label="macOS release details">
         <li><strong>macOS v0.7.1</strong></li>
         <li>Developer ID signed</li>
         <li>Notarized and stapled</li>
@@ -46,7 +46,7 @@
 
     <section class="product-frame" aria-label="AutoWhisper local waveform preview">
       <div class="waveform-card">
-        <div class="waveform-stage" aria-hidden="true">
+        <div class="waveform-stage">
           <span></span><span></span><span></span><span></span><span></span>
           <span></span><span></span><span></span><span></span><span></span>
           <span></span><span></span><span></span><span></span><span></span>
@@ -59,7 +59,171 @@
       </div>
     </section>
 
-    <section class="bento" aria-label="Product qualities">
+    <section class="workflow-section" id="workflow" aria-labelledby="workflow-title">
+      <header class="workflow-header">
+        <p class="eyebrow">Local workflow</p>
+        <h2 id="workflow-title">From dropped file to clean text, on your machine.</h2>
+        <p class="workflow-lede">A product-direction preview for the local workflow AutoWhisper is being shaped around. Release notes remain the source of truth for what ships in the current macOS build.</p>
+      </header>
+
+      <div class="workflow-grid">
+        <article class="workflow-card workflow-card-wide">
+          <header class="workflow-card-head">
+            <p class="step-label">01</p>
+            <h3>Drop audio or video</h3>
+          </header>
+          <div class="format-dropzone">
+            <p class="dropzone-cue">Drop file here</p>
+            <ul class="format-list">
+              <li>WAV</li>
+              <li>MP3</li>
+              <li>M4A</li>
+              <li>FLAC</li>
+              <li>OGG</li>
+              <li>MP4</li>
+              <li>MOV</li>
+              <li>MKV</li>
+            </ul>
+          </div>
+          <p class="workflow-copy">Drag any common audio or video file. AutoWhisper extracts the audio track and queues it for the local model. No upload step, no remote conversion service.</p>
+        </article>
+
+        <article class="workflow-card">
+          <header class="workflow-card-head">
+            <p class="step-label">02</p>
+            <h3>Clean transcript output</h3>
+          </header>
+          <div class="transcript-compare">
+            <div class="transcript-side transcript-raw">
+              <p class="transcript-tag">Raw</p>
+              <p>so um yeah we kicked off the build last tuesday and ran into the cache thing again you know it just sat there for like fifteen minutes</p>
+            </div>
+            <div class="transcript-side transcript-clean">
+              <p class="transcript-tag">Cleaned</p>
+              <p>We kicked off the build last Tuesday and ran into the cache issue again. It sat there for about fifteen minutes.</p>
+            </div>
+          </div>
+          <p class="workflow-copy">Punctuation, casing, and filler removal applied locally. Originals stay on disk for audit.</p>
+        </article>
+
+        <article class="workflow-card">
+          <header class="workflow-card-head">
+            <p class="step-label">03</p>
+            <h3>Export subtitles and notes</h3>
+          </header>
+          <ul class="export-pills">
+            <li>SRT</li>
+            <li>VTT</li>
+            <li>TXT</li>
+            <li>Markdown</li>
+          </ul>
+          <p class="workflow-copy">Save subtitle tracks for video, plain text for archives, or Markdown for note-taking apps. Each export writes a file you can move and version yourself.</p>
+        </article>
+
+        <article class="workflow-card">
+          <header class="workflow-card-head">
+            <p class="step-label">04</p>
+            <h3>Search your transcript library</h3>
+          </header>
+          <div class="library-search">
+            <div class="search-bar">
+              <span class="search-icon">⌕</span>
+              <span class="search-query">cache invalidation</span>
+            </div>
+            <ul class="search-results">
+              <li>
+                <span class="result-name">standup-2026-04-15.m4a</span>
+                <span class="result-time">0:42</span>
+              </li>
+              <li>
+                <span class="result-name">postmortem-cache.wav</span>
+                <span class="result-time">3:08</span>
+              </li>
+              <li>
+                <span class="result-name">retro-2026-04-22.mp3</span>
+                <span class="result-time">1:55</span>
+              </li>
+            </ul>
+          </div>
+          <p class="workflow-copy">Product direction: make transcript libraries searchable while keeping any future index beside your files, not in a vendor account.</p>
+        </article>
+
+        <article class="workflow-card workflow-card-wide">
+          <header class="workflow-card-head">
+            <p class="step-label">05</p>
+            <h3>Batch process long recordings</h3>
+          </header>
+          <ul class="batch-queue">
+            <li class="queue-item is-done">
+              <span class="queue-name">interview-01.wav</span>
+              <span class="queue-meter"><span class="queue-fill queue-fill-full"></span></span>
+              <span class="queue-state">done</span>
+            </li>
+            <li class="queue-item is-running">
+              <span class="queue-name">lecture-02.m4a</span>
+              <span class="queue-meter"><span class="queue-fill queue-fill-active"></span></span>
+              <span class="queue-state">62%</span>
+            </li>
+            <li class="queue-item is-pending">
+              <span class="queue-name">field-notes-03.mp3</span>
+              <span class="queue-meter"><span class="queue-fill queue-fill-empty"></span></span>
+              <span class="queue-state">queued</span>
+            </li>
+            <li class="queue-item is-pending">
+              <span class="queue-name">conference-keynote-04.mp4</span>
+              <span class="queue-meter"><span class="queue-fill queue-fill-empty"></span></span>
+              <span class="queue-state">queued</span>
+            </li>
+          </ul>
+          <p class="workflow-copy">Product direction: queue hours of recordings for background processing with restart-safe batches, while preserving the no remote rate limit and no per-minute billing principle of local transcription.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="privacy-panel" id="privacy" aria-labelledby="privacy-title">
+      <div>
+        <p class="eyebrow">Privacy posture</p>
+        <h2 id="privacy-title">A clear boundary: your speech does not need a remote transcription service.</h2>
+      </div>
+      <div class="privacy-copy">
+        <p>
+          AutoWhisper is positioned around local processing, local models, and a desktop workflow that does not require cloud speech APIs for normal dictation. The transcription core runs on whisper.cpp on your device.
+        </p>
+        <p>
+          The claim is intentionally narrow: local-first transcription, not magic security dust. You still control where the resulting text is pasted, saved, or sent. Every release links to a notarized artifact you can verify before installing.
+        </p>
+        <ul class="evidence-list">
+          <li><span class="evidence-key">Model runtime</span><span class="evidence-value">whisper.cpp on device</span></li>
+          <li><span class="evidence-key">Network during dictation</span><span class="evidence-value">none required</span></li>
+          <li><span class="evidence-key">macOS distribution</span><span class="evidence-value">Developer ID signed and notarized</span></li>
+          <li><span class="evidence-key">Linux distribution</span><span class="evidence-value">PPA package, source-built</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="contrast-section" aria-labelledby="contrast-title">
+      <p class="eyebrow contrast-eyebrow">Why locally</p>
+      <h2 id="contrast-title">Hours of audio. Minutes to text.</h2>
+        <p class="contrast-lede">
+        Keep the model close to your microphone, your files, and your network. The current release proves the local dictation core; the broader file, library, and queue workflow is the design direction for the app family.
+      </p>
+      <ul class="contrast-stats" aria-label="Local-first product direction">
+        <li>
+          <strong>0 cloud calls</strong>
+          <span>during normal dictation</span>
+        </li>
+        <li>
+          <strong>Queue direction</strong>
+          <span>designed for restart-safe batches</span>
+        </li>
+        <li>
+          <strong>Index direction</strong>
+          <span>designed to stay beside your files</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="bento" aria-label="Distribution and install paths">
       <article class="tile tile-wide">
         <p class="tile-icon" aria-hidden="true">■</p>
         <h2>Local-first by default</h2>
@@ -67,8 +231,8 @@
       </article>
       <article class="tile">
         <p class="tile-icon" aria-hidden="true">●</p>
-        <h2>Built for flow</h2>
-        <p>Use push-to-talk dictation and insert text where you already work, without turning a note into a browser errand.</p>
+        <h2>Built for desktop flow</h2>
+        <p>Push-to-talk dictation inserts text where you already work, without turning a note into a browser errand.</p>
       </article>
       <article class="tile">
         <p class="tile-icon" aria-hidden="true">◆</p>
@@ -87,27 +251,12 @@ sudo apt install autowhisper</code></pre>
       </article>
     </section>
 
-    <section class="privacy-panel" id="privacy" aria-labelledby="privacy-title">
-      <div>
-        <p class="eyebrow">Privacy posture</p>
-        <h2 id="privacy-title">A clear boundary: your speech should not need a remote transcription service.</h2>
-      </div>
-      <div class="privacy-copy">
-        <p>
-          AutoWhisper is positioned around local processing, local models, and a desktop workflow that does not require cloud speech APIs for normal dictation.
-        </p>
-        <p>
-          The claim is intentionally narrow: local-first transcription, not magic security dust. You still control where the resulting text is pasted, saved, or sent.
-        </p>
-      </div>
-    </section>
-
     <section class="notice" aria-labelledby="availability-title">
       <p class="eyebrow">Availability note</p>
       <h2 id="availability-title">Public page now, public assets when the app repo opens.</h2>
       <p>
         If the main repository is private, GitHub release downloads and source links may ask for access.
-        Public release links will work once the AutoWhisper repository or mirrored assets are public.
+        Public release links will work once the AutoWhisper repository or mirrored assets are public. Mobile builds, screen recording, and meeting capture are tracked on the roadmap and are not advertised as shipped today.
       </p>
       <a class="text-link" href="https://github.com/primemanifold/autowhisper">Open the AutoWhisper repository</a>
     </section>

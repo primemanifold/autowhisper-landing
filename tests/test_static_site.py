@@ -93,6 +93,68 @@ class StaticSiteTests(unittest.TestCase):
         self.assertIn("If the main repository is private", html)
         self.assertIn("Public release links will work once the AutoWhisper repository or mirrored assets are public", html)
 
+    def test_landing_page_has_complete_workflow_story(self):
+        html, _ = self.parse_html()
+        text = re.sub(r"\s+", " ", html)
+        required = [
+            "Drop audio or video",
+            "Clean transcript output",
+            "Export subtitles and notes",
+            "Search your transcript library",
+            "Batch process long recordings",
+            "Hours of audio. Minutes to text.",
+            "SRT",
+            "VTT",
+            "TXT",
+            "Markdown",
+        ]
+        for phrase in required:
+            self.assertIn(phrase, text)
+        for class_name in [
+            "workflow-section",
+            "format-dropzone",
+            "transcript-compare",
+            "export-pills",
+            "library-search",
+            "batch-queue",
+            "contrast-section",
+        ]:
+            self.assertIn(class_name, html)
+
+    def test_design_system_is_cross_platform_and_machine_readable(self):
+        design = self.read("DESIGN.md")
+        required = [
+            "AutoWhisper Design System",
+            "macOS",
+            "Linux",
+            "mobile",
+            "landing page",
+            "warm technical minimalism",
+            "privacy-first",
+            "evidence-backed",
+            "Cross-platform implementation notes",
+        ]
+        for phrase in required:
+            self.assertIn(phrase, design)
+        self.assertIn('primary: "#18181B"', design)
+        self.assertIn('tertiary: "#D97706"', design)
+
+    def test_css_uses_design_system_sections_and_dark_contrast(self):
+        css = self.read("site/styles.css")
+        required = [
+            "--paper",
+            "--accent-warm",
+            "--success",
+            ".workflow-section",
+            ".transcript-compare",
+            ".export-pills",
+            ".library-search",
+            ".batch-queue",
+            ".contrast-section",
+        ]
+        for phrase in required:
+            self.assertIn(phrase, css)
+
     def test_no_framework_runtime_or_tracking(self):
         html = self.read("site/index.html")
         css = self.read("site/styles.css")
